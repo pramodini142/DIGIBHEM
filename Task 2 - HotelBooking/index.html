@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>GrandStay | Hotel Booking</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<header class="navbar">
+
+    <div class="logo">
+        <div class="logo-mark">✦</div>
+
+        <div>
+            <h2>GrandStay</h2>
+            <span>HOTELS & SUITES</span>
+        </div>
+    </div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#booking">Rooms</a>
+        <a href="#amenities">Amenities</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="nav-contact">
+        <strong>☎ +91 98765 43210</strong>
+        <small>24/7 Support</small>
+    </div>
+
+    <button class="nav-button" onclick="scrollToBooking()">
+        Book Now
+    </button>
+
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero" id="home">
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+
+        <p class="hero-small">
+            LUXURY STAYS, LASTING MEMORIES
+        </p>
+
+        <h1>
+            Welcome to<br>
+            <span>GrandStay</span>
+        </h1>
+
+        <p class="hero-subtitle">
+            Comfort | Elegance | Hospitality
+        </p>
+
+        <p class="hero-description">
+            Experience premium hospitality with elegant rooms,
+            thoughtful amenities and effortless booking.
+        </p>
+
+        <button class="hero-button" onclick="scrollToBooking()">
+            Reserve Your Stay
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ================= BOOKING AREA ================= -->
+
+<main class="booking-layout" id="booking">
+
+
+<!-- ================= LEFT SIDE ================= -->
+
+<div class="booking-main">
+
+
+<!-- CUSTOMER INFORMATION -->
+
+<section class="booking-card">
+
+    <div class="section-title">
+
+        <div class="number">01</div>
+
+        <div>
+            <span>CUSTOMER INFORMATION</span>
+            <h2>Guest Details</h2>
+            <p>
+                Enter the primary guest information for this reservation.
+            </p>
+        </div>
+
+    </div>
+
+
+    <div class="form-grid">
+
+        <div class="form-group full">
+
+            <label>
+                Full Name <b>*</b>
+            </label>
+
+            <input
+                type="text"
+                id="customerName"
+                placeholder="Enter guest name"
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>
+                Phone Number <b>*</b>
+            </label>
+
+            <input
+                type="tel"
+                id="phone"
+                placeholder="10-digit mobile number"
+                maxlength="10"
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>
+                Email Address
+            </label>
+
+            <input
+                type="email"
+                id="email"
+                placeholder="guest@example.com"
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>
+                Check-in Date <b>*</b>
+            </label>
+
+            <input
+                type="date"
+                id="checkIn"
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>
+                Total Days <b>*</b>
+            </label>
+
+            <input
+                type="number"
+                id="days"
+                min="1"
+                value="1"
+                oninput="calculateTotal()"
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>
+                Total Persons
+            </label>
+
+            <input
+                type="number"
+                id="persons"
+                min="1"
+                value="1"
+                oninput="calculateTotal()"
+            >
+
+            <small>
+                Extra person charge applies above room capacity.
+            </small>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>
+                Advance Amount <b>*</b>
+            </label>
+
+            <input
+                type="number"
+                id="advance"
+                min="0"
+                placeholder="₹ Enter advance"
+                oninput="calculateTotal()"
+            >
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ROOM INFORMATION -->
+
+<section class="booking-card">
+
+    <div class="section-title">
+
+        <div class="number">02</div>
+
+        <div>
+            <span>ROOM INFORMATION</span>
+            <h2>Select Your Room</h2>
+            <p>
+                Choose the room category that best suits your stay.
+            </p>
+        </div>
+
+    </div>
+
+
+    <div class="room-grid">
+
+
+        <!-- DELUXE -->
+
+        <label class="room-option selected">
+
+            <input
+                type="radio"
+                name="room"
+                value="3000"
+                checked
+                onchange="selectRoom(this)"
+            >
+
+            <img src="deluxe.jpg" alt="Deluxe Room">
+
+            <div class="room-content">
+
+                <div class="room-heading">
+
+                    <h3>Deluxe Room</h3>
+
+                    <span class="check-icon">✓</span>
+
+                </div>
+
+                <p>
+                    Elegant room with comfortable furnishings
+                    and modern facilities.
+                </p>
+
+                <strong class="room-price">
+                    ₹3,000 <small>/ day</small>
+                </strong>
+
+                <div class="room-features">
+                    <span>🛏 King Bed</span>
+                    <span>📶 Free WiFi</span>
+                    <span>☕ Breakfast</span>
+                </div>
+
+            </div>
+
+        </label>
+
+
+        <!-- SUITE -->
+
+        <label class="room-option">
+
+            <input
+                type="radio"
+                name="room"
+                value="5000"
+                onchange="selectRoom(this)"
+            >
+
+            <img src="suite.jpg" alt="Suite Room">
+
+            <div class="room-content">
+
+                <div class="room-heading">
+
+                    <h3>Suite Room</h3>
+
+                    <span class="check-icon">✓</span>
+
+                </div>
+
+                <p>
+                    Spacious premium accommodation designed
+                    for an elevated stay.
+                </p>
+
+                <strong class="room-price">
+                    ₹5,000 <small>/ day</small>
+                </strong>
+
+                <div class="room-features">
+                    <span>🛏 King Bed</span>
+                    <span>🛋 Living Area</span>
+                    <span>📶 Free WiFi</span>
+                </div>
+
+            </div>
+
+        </label>
+
+    </div>
+
+</section>
+
+
+<!-- AMENITIES -->
+
+<section class="booking-card" id="amenities">
+
+    <div class="section-title">
+
+        <div class="number">03</div>
+
+        <div>
+            <span>ADDITIONAL AMENITIES</span>
+            <h2>Enhance Your Stay</h2>
+            <p>
+                Select optional facilities for your reservation.
+            </p>
+        </div>
+
+    </div>
+
+
+    <div class="amenity-grid">
+
+
+        <label class="amenity">
+
+            <input
+                type="checkbox"
+                id="ac"
+                onchange="calculateTotal()"
+            >
+
+            <div>
+                <strong>❄ Air Conditioning</strong>
+                <span>₹500 / day</span>
+            </div>
+
+        </label>
+
+
+        <label class="amenity">
+
+            <input
+                type="checkbox"
+                id="locker"
+                onchange="calculateTotal()"
+            >
+
+            <div>
+                <strong>🔐 Personal Locker</strong>
+                <span>₹300 / day</span>
+            </div>
+
+        </label>
+
+    </div>
+
+</section>
+
+
+<!-- SERVICES -->
+
+<section class="service-strip">
+
+    <div>
+        <strong>◇</strong>
+        <span>
+            <b>Best Price</b>
+            Guaranteed
+        </span>
+    </div>
+
+    <div>
+        <strong>♧</strong>
+        <span>
+            <b>24/7 Support</b>
+            We're always here
+        </span>
+    </div>
+
+    <div>
+        <strong>✓</strong>
+        <span>
+            <b>Secure Booking</b>
+            Your data is safe
+        </span>
+    </div>
+
+    <div>
+        <strong>☕</strong>
+        <span>
+            <b>Breakfast</b>
+            Complimentary
+        </span>
+    </div>
+
+</section>
+
+</div>
+
+
+<!-- ================= RIGHT SUMMARY ================= -->
+
+<aside class="summary-card">
+
+    <div class="summary-header">
+
+        <div class="summary-icon">
+            ✦
+        </div>
+
+        <div>
+            <span>BOOKING SUMMARY</span>
+            <h2>Your Reservation</h2>
+        </div>
+
+    </div>
+
+
+    <div class="summary-line">
+
+        <span>Room Type</span>
+
+        <strong id="summaryRoom">
+            Deluxe Room
+        </strong>
+
+    </div>
+
+
+    <div class="summary-line">
+
+        <span>
+            Room Cost
+            <small id="roomCalculation">
+                (₹3,000 × 1 day)
+            </small>
+        </span>
+
+        <strong id="roomCost">
+            ₹3,000
+        </strong>
+
+    </div>
+
+
+    <div class="summary-line">
+
+        <span>AC Charges</span>
+
+        <strong id="acCost">
+            ₹0
+        </strong>
+
+    </div>
+
+
+    <div class="summary-line">
+
+        <span>Locker Charges</span>
+
+        <strong id="lockerCost">
+            ₹0
+        </strong>
+
+    </div>
+
+
+    <div class="summary-line">
+
+        <span>
+            Extra Person Charges
+        </span>
+
+        <strong id="extraCost">
+            ₹0
+        </strong>
+
+    </div>
+
+
+    <div class="summary-total">
+
+        <span>Total Cost</span>
+
+        <strong id="totalCost">
+            ₹3,000
+        </strong>
+
+    </div>
+
+
+    <div class="summary-line advance-line">
+
+        <span>Advance Paid</span>
+
+        <strong id="advanceDisplay">
+            ₹0
+        </strong>
+
+    </div>
+
+
+    <div class="balance">
+
+        <span>Remaining Balance</span>
+
+        <strong id="balance">
+            ₹3,000
+        </strong>
+
+    </div>
+
+
+    <button
+        class="confirm-button"
+        onclick="confirmBooking()"
+    >
+        ✓ Confirm Booking
+    </button>
+
+
+    <div
+        id="bookingMessage"
+        class="booking-message"
+    ></div>
+
+
+    <!-- CONFIRMED DETAILS -->
+
+    <div
+        id="bookingDetails"
+        class="booking-details hidden"
+    >
+
+        <div class="confirmed-title">
+            <span>✓</span>
+
+            <div>
+                <strong>
+                    Booking Confirmed
+                </strong>
+
+                <small>
+                    Your reservation has been created successfully.
+                </small>
+            </div>
+        </div>
+
+
+        <div class="booking-id">
+
+            <span>Booking ID</span>
+
+            <strong id="bookingId">
+                —
+            </strong>
+
+        </div>
+
+
+        <div class="details-grid">
+
+            <span>Guest</span>
+            <strong id="detailName">—</strong>
+
+            <span>Phone</span>
+            <strong id="detailPhone">—</strong>
+
+            <span>Room</span>
+            <strong id="detailRoom">—</strong>
+
+            <span>Check-in</span>
+            <strong id="detailDate">—</strong>
+
+            <span>Days</span>
+            <strong id="detailDays">—</strong>
+
+            <span>Persons</span>
+            <strong id="detailPersons">—</strong>
+
+            <span>Total</span>
+            <strong id="detailTotal">—</strong>
+
+            <span>Balance</span>
+            <strong id="detailBalance">—</strong>
+
+        </div>
+
+
+        <button
+            class="print-button"
+            onclick="printBooking()"
+        >
+            🖨 Print Confirmation
+        </button>
+
+    </div>
+
+</aside>
+
+</main>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer id="contact">
+
+    <div class="footer-brand">
+
+        <h2>GrandStay</h2>
+
+        <span>
+            HOTELS & SUITES
+        </span>
+
+        <p>
+            More Than a Stay, A Feeling.
+        </p>
+
+    </div>
+
+
+    <div class="footer-links">
+
+        <a href="#home">Home</a>
+        <a href="#booking">Rooms</a>
+        <a href="#amenities">Amenities</a>
+        <a href="#contact">Contact</a>
+
+    </div>
+
+
+    <div class="footer-contact">
+
+        <strong>
+            +91 98765 43210
+        </strong>
+
+        <span>
+            reservations@grandstay.com
+        </span>
+
+    </div>
+
+
+    <p class="copyright">
+        © 2026 GrandStay Hotels & Suites.
+        All Rights Reserved.
+    </p>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
